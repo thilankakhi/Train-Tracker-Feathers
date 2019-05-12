@@ -1,0 +1,36 @@
+{
+    "host": "localhost",
+    "port": 3030,
+    "public": "../public/",
+    "paginate": {
+        "default": 20,
+        "max": 50
+    },
+    "authentication": {
+        "secret": "8bca7077e1137f93bbb45d721cbdcda3bfd66a949d489912d96268efceb010c68e2874a6bebf4bdbdf54041cb8ee09d2357725fca2e9608396e770dda4ee1d757fdba6a9530cb25e8341519f078c3ce751a15bbb09a0358f27a5f304197208b7736ec6764aa533d193f038beb50d5ec5a0c20d4995b0db117e0903506ffb21e1c0aebcb941ff03442cd916b1a059432cff91df8efce16f93c519ccf10099ed878e49d0fcf368736109993a924eeebcefa2b381db65cddac948c23a56deb8c5b679a854e58ac5b4ffd819c0380a6ae88000f024312dd8266a3ad58fd8feb3bef37a95c4209e1a2d02ff4e7ba99f4a3bd0cab5af6d4c7050bc39b5306369151618",
+        "strategies": [
+            "jwt",
+            "local"
+        ],
+        "path": "/authentication",
+        "service": "users",
+        "jwt": {
+            "header": {
+                "typ": "access"
+            },
+            "audience": "https://yourdomain.com",
+            "subject": "anonymous",
+            "issuer": "feathers",
+            "algorithm": "HS256",
+            "expiresIn": "1d"
+        },
+
+        "local": {
+            "entity": "user",
+            "usernameField": "email",
+            "passwordField": "password",
+            "nameField": "name"
+        }
+    },
+    "mongodb": "mongodb+srv://isuri:password@traintracker-2s7h3.mongodb.net/test?retryWrites=true"
+}
