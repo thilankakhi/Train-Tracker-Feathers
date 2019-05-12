@@ -22,7 +22,44 @@ Getting up and running is as easy as 1, 2, 3.
     ```
     npm start
     ```
+## Endpoints
 
+### SignUp 
+1. URL :
+    ```
+    http://localhost:3030/users/
+    ```
+2. METHOD :
+    ```
+    POST
+    ```
+3. BODY :
+    ```
+    {
+        "email" : "example@example.com",
+        "password" : "password",
+        "name" : "name"
+    }
+    ```
+
+### Authentication
+1. URL :
+    ```
+    http://localhost:3030/authentication/
+    ```
+2. METHOD :
+    ```
+    POST
+    ```
+3. BODY :
+    ```
+    {
+        "email" : "example@example.com",
+        "password" : "password",
+        "strategy" : "local"
+    }
+    ```
+Response will contain generated `JWT` and `email` and `name` of the user. `id` of the user is encoded in the `JWT`.
 ## Testing
 
 Simply run `npm test` and all your tests in the `test/` directory will be run.
