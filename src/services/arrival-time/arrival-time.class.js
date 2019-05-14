@@ -9,35 +9,14 @@ class Service {
         this.app = app;
     }
 
-    async find(params) {
-        return [];
-    }
-
-    async get(id, params) {
-        return {
-            id,
-            text: `A new message with ID: ${id}!`
-        };
-    }
-
     async create(data, params) {
-        if (Array.isArray(data)) {
-            return Promise.all(data.map(current => this.create(current, params)));
-        }
-
-        return data;
-    }
-
-    async update(id, data, params) {
-        return data;
-    }
-
-    async patch(id, data, params) {
-        return data;
-    }
-
-    async remove(id, params) {
-        return { id };
+        const trainId = data.trainId;
+        var location = null;
+        await this.app.service('trainLocation').find({ trainId: '1' }).then(result => { location = result.data[0].location.coordinates; });
+        return {
+            trainId: trainId,
+            currentLocation: location
+        };
     }
 }
 
